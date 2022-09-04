@@ -56,6 +56,9 @@ export async function main(ns, numServers = ns.args[0]) {
 			pservNames.forEach(name => {
 				if (ns.getServerMoneyAvailable('home') > ns.getPurchasedServerCost(ram)) {
 					ns.purchaseServer(name, ram);
+					ns.scp("targeted-weaken.js",name ,"home");
+					ns.scp("targeted-grow.js",name ,"home");
+					ns.scp("targeted-hack.js",name ,"home");
 				}
 			})
 
@@ -63,6 +66,9 @@ export async function main(ns, numServers = ns.args[0]) {
 				if (ns.getServerMoneyAvailable('home') > ns.getPurchasedServerCost(ram)) {
 					let host = 'pserv-' + ns.getPurchasedServers().length;
 					ns.purchaseServer(host, ram);
+					ns.scp("targeted-weaken.js",host ,"home");
+					ns.scp("targeted-grow.js",host ,"home");
+					ns.scp("targeted-hack.js",host ,"home");
 				}
 			}
 		} else {
@@ -73,6 +79,9 @@ export async function main(ns, numServers = ns.args[0]) {
 			if (ns.getServerMoneyAvailable('home') > ns.getPurchasedServerCost(ram)) {
 				let host = 'pserv-' + ns.getPurchasedServers().length;
 				ns.purchaseServer(host, ram);
+				ns.scp("targeted-weaken.js",host ,"home");
+				ns.scp("targeted-grow.js",host ,"home");
+				ns.scp("targeted-hack.js",host ,"home");
 			}
 		}
 	}
